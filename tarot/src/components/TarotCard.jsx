@@ -1,12 +1,18 @@
 import React from 'react';
+import CardTitle from './CardTitle';
 
-function TarotCard({ card }) {
+function TarotCard({ card, title }) {
   return (
     <div className="card">
-      <img src={`/data/cards/${card.img}`} alt={card.name} />
-      <h2>{card.name}</h2>
-      <p>{card.meanings.light.join(', ')}</p>
-      <p>{card.meanings.shadow.join(', ')}</p>
+      <CardTitle title={title} />
+      <div className="card-image-container">
+        <img src={`/data/cards/${card.img}`} alt={card.name} />
+      </div>
+      <div className="card-content">
+        <h2 className="card-name">{card.name}</h2>
+        <p>{card.meanings.light.join(', ')}</p>
+        <p>{card.meanings.shadow.join(', ')}</p>
+      </div>
     </div>
   );
 }
